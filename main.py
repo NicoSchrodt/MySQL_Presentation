@@ -1,9 +1,8 @@
-import mysql.connector
+import database
 
-mydb = mysql.connector.connect(
-  host="localhost",
-  user="root",
-  password="rootpsw1"
-)
+connection = database.create_connection("localhost", "root", "rootpsw1", "dhbw_base")
 
-print(mydb)
+result = database.execute_statement(connection, "SELECT * FROM students")
+
+for x in result:
+    print(x)
